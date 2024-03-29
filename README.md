@@ -51,10 +51,10 @@ Upon contacting the UMIACS team members regarding this issue, I was informed tha
 
 ### Final Approach
 
-Finally, I was able to successfully pull, build, and commit to Podman images as well as run Podman containers with full "virtual" root access with the following two directories used as the `graphroot`, both of which reside on the local storage:
+Finally, I was able to successfully pull, build, and commit to Podman images as well as run Podman containers with full "virtual" root access with the following two directories used as the `graphroot`, both of which reside on the Nexus local storage:
 - `/var/tmp/USERNAME/containers/storage/`
 - `/nfshomes/USERNAME/.local/share/containers/storage`
 
-I was also able to build a full `Dockerfile` and run containers based on it in local mode.
+I was also able to build a full `Dockerfile` and run containers based on it while using Nexus local storage.
 
 While this approach has limitations due to the limited storage space and computational power provided while running containers in local mode, I was also informed that one can use Podman to build `Dockerfile`'s including specifications of the required environment and use **Apptainer** to run them with storage configurations on the network partitions **without run-time privilege elevations** according to this [documentation](https://wiki.umiacs.umd.edu/umiacs/index.php/Apptainer) and this [example](https://gitlab.umiacs.umd.edu/derek/gpudocker). However, I have yet had no experiments with this approach to verify whether it works as expected or not.
