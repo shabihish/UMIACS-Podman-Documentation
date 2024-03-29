@@ -50,6 +50,6 @@ Finally, I was able to successfully pull, build, and commit to Podman images as 
 - `/var/tmp/USERNAME/containers/storage/`
 - `/nfshomes/USERNAME/.local/share/containers/storage`
 
-I was also able to build a full `Dockerfile` and run containers based on it in local mode
+I was also able to build a full `Dockerfile` and run containers based on it in local mode.
 
-While this approach has limitations due to the limited storage space and computational power provided while running containers in local mode, I was also informed that one can use Podman to build `Dockerfile`'s including specifications of the required environment and use **Apptainer** to run them with storage configurations on the network partitions **without run-time privilege elevations** according to this [documentation](https://wiki.umiacs.umd.edu/umiacs/index.php/Apptainer) and this [example](https://gitlab.umiacs.umd.edu/derek/gpudocker). However, I have yet had no experiments with this approach to verify whether it works as expected on not.
+While this approach has limitations due to the limited storage space and computational power provided while running containers in local mode, I was also informed that one can use Podman to build `Dockerfile`'s including specifications of the required environment and use **Apptainer** to run them with storage configurations on the network partitions **without run-time privilege elevations** according to this [documentation](https://wiki.umiacs.umd.edu/umiacs/index.php/Apptainer) and this [example](https://gitlab.umiacs.umd.edu/derek/gpudocker). However, I have yet had no experiments with this approach to verify whether it works as expected or not.
