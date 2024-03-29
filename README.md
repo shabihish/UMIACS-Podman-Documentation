@@ -1,5 +1,5 @@
 # UMIACS Podman Documentation
-**Overview**
+## Overview
 
 Podman is a tool for managing OCI containers and pods. While it is very similar to Docker in the sense that you can build images and run containers isolated containers, it is different from Docker in that it does not require a separate daemon to run containers, making it more lightweight and secure. Some key aspects of Podman include:
 
@@ -11,7 +11,10 @@ Podman is a tool for managing OCI containers and pods. While it is very similar 
 
 - Storage for images, containers, and pods is local by default. There is no daemon and no dependency on a remote Docker host.
 
-**Podman on the UMIACS Nexus Clusters**
+
+
+
+## Podman on the UMIACS Nexus Clusters
 
 Podman is supported by UMIACS for Nexus Clusters by default. A documentation for this can be found here: 
 
@@ -23,7 +26,8 @@ Here are a few considerations to make regarding this:
 - Because the containers are run in root-less mode and due to the use of `subuid` ranges for the translation of user IDs, when running a container, the container is given a false sense of root-level system access. This means that even though the container in question would not be granted system-level root access, it would have virtual root access over its isolated namespace.
 - Container storage and image storage `graphroot` defaults to the local directory `/var/lib/containers`.
 
-**Storage**
+
+## Storage
 
 As previously mentioned, the storage `graphroot` (where images are stored) in Podman defaults to the local directory `/var/lib/containers`.However, on Nexus clusters access to this directory is limited and attempts to pull images into or run containers from this directory will raise errors because of permission denials by default. The UMIACS wiki page mentioned above provides a section on how this issue can be solved, but their documentation also seems to lack a global view of how this parameter can/cannot be used for different purposes in different environments.
 
