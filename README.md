@@ -29,7 +29,9 @@ Here are a few considerations to make regarding this:
 
 ## Storage
 
-As previously mentioned, the storage `graphroot` (where images are stored) in Podman defaults to the local directory `/var/lib/containers`.However, on Nexus clusters access to this directory is limited and attempts to pull images into or run containers from this directory will raise errors because of permission denials by default. The UMIACS wiki page mentioned above provides a section on how this issue can be solved, but their documentation also seems to lack a global view of how this parameter can or cannot be used for different purposes in different environments.
+As previously mentioned, the storage `graphroot` (where images are stored) in Podman defaults to the local directory `/var/lib/containers`. However, on Nexus clusters access to this directory is limited and attempts to pull images into or run containers from this directory will raise errors because of permission denials by default. The UMIACS wiki page mentioned above provides a section on how this issue can be solved, but their documentation also seems to lack a global view of how this parameter can or cannot be used for different purposes in different environments.
+
+### Unsuccessful Attempts
 
 First, they assign subdirectories of `/scratch0/` to the `graphroot` parameter in this documentation, which does not seem to be valid. Upon contacting the UMIACS staff members regarding an error I was getting when attempting to run containers from this directory on UMIACS SLURM nodes I was told that this `graphroot` directory is intended only for purposes of storing Podman images and/or containers and not running them:
 ```.
@@ -45,6 +47,9 @@ Error: creating build container: copying system image from manifest list: writin
 ```
 
 Upon contacting the UMIACS team members regarding this issue, I was informed that the wiki page for Podman was changed to underline the constraint that Podman containers can only be run on **local** storage partitions. 
+
+
+### Final Approach
 
 Finally, I was able to successfully pull, build, and commit to Podman images as well as run Podman containers with full "virtual" root access with the following two directories used as the `graphroot`, both of which reside on the local storage:
 - `/var/tmp/USERNAME/containers/storage/`
