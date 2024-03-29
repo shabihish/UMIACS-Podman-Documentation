@@ -14,7 +14,7 @@ Podman is a tool for managing OCI containers and pods. While it is very similar 
 **Podman on the UMIACS Nexus Clusters**
 Podman is supported by UMIACS for Nexus Clusters by default. A documentation for this can be found here: 
 
-https://wiki.umiacs.umd.edu/umiacs/index.php/Podman#Storage
+https://wiki.umiacs.umd.edu/umiacs/index.php/Podman
 
 Here are a few considerations to make regarding this:
 
