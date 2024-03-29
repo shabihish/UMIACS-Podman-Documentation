@@ -37,7 +37,7 @@ ERRO[0000] cannot find mappings for user username: No subuid ranges found for us
 ```
 The error is obviously about no `subuid` ranges for my username being mentioned in the `/etc/subuid` file in the configuration of the SLURM node under consideration. I was notified of the following reason for this upon contacting the UMIACS helpdesk regarding the issue: "_The reason why we do not deploy subuids/gids on the compute nodes themselves is because the subuid/gid ranges that we deploy for each user account on submission nodes are not guaranteed to be unique to that user across all other nodes, resulting in potential collisions._"
 
-Secondly, I tried using network storage partitions (`/fs/nexus-scratch/USERNAME/...`) as they provided much more storage space than local partitions, but these attempts were also all unsuccessful. Across all my attempts, I constantly got the following error, which was again seemingly because the network-based storage locations are configured not to allow namespace translations into local storages spaces due to security concerns:
+Secondly, I tried using network storage partitions (`/fs/nexus-scratch/USERNAME/...`) as they provided much more storage space than local partitions, but these attempts were also all unsuccessful. Across all my attempts, I constantly got the following error, which was again seemingly because the network-based storage locations are configured not to allow namespace translations into local storage spaces due to security concerns:
 
 ```
 ERRO[0001] While applying layer: ApplyLayer stdout:  stderr: setting up pivot dir: mkdir /fs/nexus-scratch/shabihi/containers/storage/vfs/dir/3a03f09d212915b240e9d216069aba5652ed4765c7e4b098c65e71860d47b8e1/.pivot_root3600685657: permission denied exit status 1
